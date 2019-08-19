@@ -148,10 +148,9 @@ module Sidekiq::LimitFetch::Global
       END
     end
 
-    def remove_locks_except!(processes)
-      locked_processes = probed_processes.uniq
-      (locked_processes - processes).each do |dead_process|
-        remove_lock! dead_process
+    def remove_locks_for!(processes)
+      processes.each do |process|
+        remove_lock! process
       end
     end
 
