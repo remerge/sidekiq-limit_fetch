@@ -4,8 +4,8 @@ module Sidekiq::LimitFetch::Global
 
     HEARTBEAT_PREFIX = 'limit:heartbeat:'
     PROCESS_SET = 'limit:processes'
-    HEARTBEAT_TTL = 20
-    REFRESH_TIMEOUT = 5
+    HEARTBEAT_TTL = 50
+    REFRESH_TIMEOUT = 4
 
     def start!(ttl=HEARTBEAT_TTL, timeout=REFRESH_TIMEOUT)
       # We run this once syncronously so that callers can have more confidence
